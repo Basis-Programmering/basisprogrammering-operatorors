@@ -4,20 +4,49 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the first number:");
+            Console.Write("Indtast a: ");
+            double a = double.Parse(Console.ReadLine());
 
-            float a = float.Parse(Console.ReadLine());
+            Console.Write("Indtast b: ");
+            double b = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the second number:");
-            float b = float.Parse(Console.ReadLine());
-            Console.WriteLine("results of maths:");
-            Console.WriteLine($"a + b =  {a + b}");
-            Console.WriteLine($"a - b =  {a - b}");
-            Console.WriteLine($"a * b =  {a * b}");
-            Console.WriteLine($"a / b =  {a / b}");
-            Console.WriteLine($"(a + b)*2 =  {(a+b)*2}");
-            Console.WriteLine("press any key to exit");
-            Console.ReadKey();
+            Console.Write("Indtast c: ");
+            double c = double.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+            Console.WriteLine($"Startværdi for a = {a}");
+            double x = a; // arbejdskopi af a
+            Console.WriteLine($"Arbejdskopi x = {x}");
+            Console.WriteLine();
+
+            // a) +=
+            double before = x;
+            x += b; // x = x + b
+            Console.WriteLine($"Efter x += b :   {before} + {b} = {x}");
+
+            // b) -=
+            before = x;
+            x -= c; // x = x - c
+            Console.WriteLine($"Efter x -= c :   {before} - {c} = {x}");
+
+            // c) *=
+            before = x;
+            x *= b; // x = x * b
+            Console.WriteLine($"Efter x *= b :   {before} * {b} = {x}");
+
+            // d) /=
+            before = x;
+            x /= c; // x = x / c
+            Console.WriteLine($"Efter x /= c :   {before} / {c} = {x}");
+
+            Console.WriteLine();
+            Console.WriteLine("(Parentes-eksempler)");
+            Console.WriteLine($"(a + b) * c = {(a + b) * c}");
+            Console.WriteLine($"a + (b * c) = {a + (b * c)}");
+
+            Console.WriteLine("\nTryk en tast for at afslutte...");
+            Console.ReadKey(true);
+
         }
     }
 }
