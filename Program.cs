@@ -4,48 +4,53 @@
     {
         static void Main(string[] args)
         {
-            Console.Write("Indtast a: ");
-            double a = double.Parse(Console.ReadLine());
+         
 
-            Console.Write("Indtast b: ");
-            double b = double.Parse(Console.ReadLine());
+            // Vare 1
+            Console.Write("Vare 1 navn: ");
+            string n1 = Console.ReadLine();
+            Console.Write("Pris pr. stk: ");
+            decimal p1 = decimal.Parse(Console.ReadLine());
+            Console.Write("Antal: ");
+            int q1 = int.Parse(Console.ReadLine());
 
-            Console.Write("Indtast c: ");
-            double c = double.Parse(Console.ReadLine());
+            // Vare 2
+            Console.Write("\nVare 2 navn: ");
+            string n2 = Console.ReadLine();
+            Console.Write("Pris pr. stk: ");
+            decimal p2 = decimal.Parse(Console.ReadLine());
+            Console.Write("Antal: ");
+            int q2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine();
-            Console.WriteLine($"Startværdi for a = {a}");
-            double x = a; // arbejdskopi af a
-            Console.WriteLine($"Arbejdskopi x = {x}");
-            Console.WriteLine();
+            // Vare 3
+            Console.Write("\nVare 3 navn: ");
+            string n3 = Console.ReadLine();
+            Console.Write("Pris pr. stk: ");
+            decimal p3 = decimal.Parse(Console.ReadLine());
+            Console.Write("Antal: ");
+            int q3 = int.Parse(Console.ReadLine());
 
-            // a) +=
-            double before = x;
-            x += b; // x = x + b
-            Console.WriteLine($"Efter x += b :   {before} + {b} = {x}");
+            // Linjetotaler og samlet total
+            decimal t1 = p1 * q1;
+            decimal t2 = p2 * q2;
+            decimal t3 = p3 * q3;
+            decimal total = t1 + t2 + t3;
+            decimal udenMoms = total / 1.25m;
 
-            // b) -=
-            before = x;
-            x -= c; // x = x - c
-            Console.WriteLine($"Efter x -= c :   {before} - {c} = {x}");
-
-            // c) *=
-            before = x;
-            x *= b; // x = x * b
-            Console.WriteLine($"Efter x *= b :   {before} * {b} = {x}");
-
-            // d) /=
-            before = x;
-            x /= c; // x = x / c
-            Console.WriteLine($"Efter x /= c :   {before} / {c} = {x}");
-
-            Console.WriteLine();
-            Console.WriteLine("(Parentes-eksempler)");
-            Console.WriteLine($"(a + b) * c = {(a + b) * c}");
-            Console.WriteLine($"a + (b * c) = {a + (b * c)}");
+            // Udskrift (simple kolonner)
+            Console.WriteLine("=== KVITTERING ===");
+            Console.WriteLine("\nVare               Antal     Pris     Total");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine($"{n1,-18}{q1,6}{p1,10:0.00}{t1,10:0.00}");
+            Console.WriteLine($"{n2,-18}{q2,6}{p2,10:0.00}{t2,10:0.00}");
+            Console.WriteLine($"{n3,-18}{q3,6}{p3,10:0.00}{t3,10:0.00}");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine($"{"Samlet total:",-24}{total,16:0.00}");
+            Console.WriteLine($"{"Uden moms:",-24}{udenMoms,16:0.00}");
 
             Console.WriteLine("\nTryk en tast for at afslutte...");
             Console.ReadKey(true);
+
 
         }
     }
